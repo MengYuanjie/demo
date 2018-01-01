@@ -5,7 +5,6 @@
  * Date: 01/01/2018
  * Time: 22:56
  */
-session_start();
 
 include 'func.php';
 

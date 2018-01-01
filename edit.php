@@ -24,7 +24,6 @@ if(!empty($_GET['sid'])) {
     echo " there is no message";
   }
 }
-echo "oage one";
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,7 @@ echo "oage one";
 
 <form action="edit_server.php" method="post">
 <label>用户名：</label><input type="text" name="user" value="<?php echo $result_arr['user']?>">
-<label>用户年龄：</label><input type="text" name="psw" value="<?php echo $result_arr['psw']?>">
+<label>密码：</label><input type="text" name="psw" value="<?php echo $result_arr['psw']?>">
 <input type="submit" value="提交修改">
 </form>
 </body>
