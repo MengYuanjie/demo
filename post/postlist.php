@@ -5,27 +5,26 @@
  * Date: 02/01/2018
  * Time: 05:57
  */
+include 'pagesplit.php';
 
-include '../func.php';
-
-echo "<h4><a href='index.php'>back to main page</a></h4><br>";
-$sql = "SELECT * FROM postset ";
-$con = connect();
-$result = $con->query($sql);
-if($result->num_rows>0){
-
-  while($row = $result->fetch_assoc()){
-
-    echo "Title : " . $row["title"]."    User : " . $row["user"]. "<br>";
-    echo "Content : " . $row["content"]. "<br>";
-    echo "Date : " . $row["date"]. "<br>";
-    echo "<a href='editphp.php?postid=".$row["postid"]."'>修改</a> ";
-    echo "<a href='action.php?action=delete&postid=".$row["postid"]."'>删除</a></td></tr><br>";
-    echo "---------------"."<br>";
-
-  }
-}else{
-  echo " there is no message";
+foreach($array as $key=>$values){
+  echo "<br><tr>";
+  echo "<td>title : {$values->title}</td><br>";
+  echo "<td>content : {$values->content}</td><br>";
+  echo "Date : {$values->date}<br>";
+  echo "User : {$values->user}<br>";
+  echo "<a href='/demo2/post/editphp.php?postid={$values->postid}'>修改</a> ";
+  echo "<a href='/demo2/post/action.php?action=delete&postid={$values->postid}'>删除</a></td></tr><br>";
+  echo "---------------"."<br>";
+  echo "</tr>";
 }
 
-$con->close();
+
+for($i=1; $i<=$endPage; $i++)
+{
+  echo "<a href='?pageNum=".$i."'>".$i."</a> ";
+}
+
+
+
+

@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Daisy
- * Date: 02/01/2018
- * Time: 01:09
+ * Date: 01/01/2018
+ * Time: 22:33
  */
-session_start();
-include 'func.php';
+
+include '../func.php';
 
 if(!isset($_POST['user'])){
   die('user is not defined');
@@ -32,12 +32,14 @@ $con=connect();
 //
 $timesmpt=time();
 ////insert data
-$sql = $sql = "SELECT * FROM userinfo WHERE user='{$user}' AND psw='{$psw}'";
+$sql = "INSERT INTO userinfo (user, psw, sid)
+VALUES('{$user}','{$psw}', md5('{$timesmpt}'))";
 
 $result=$con->query($sql);
-if($result->num_rows > 0){
-  $_SESSION['user']=$user;
-  header("Location:index.php");
+if($result){
+  header("Location:../index.php");
 }else{
-  echo "Log in failed";
+  echo "insert failed";
 }
+
+

@@ -6,7 +6,7 @@
  * Time: 00:13
  */
 session_start();
-include "func.php";
+include "../func.php";
 
 if(!empty($_GET['sid'])) {
   //连接mysql数据库

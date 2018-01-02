@@ -5,7 +5,7 @@
  * Date: 01/01/2018
  * Time: 22:22
  */
-include 'config.php';
+require_once  'config.php';
 
 //connect to database
 function connect(){

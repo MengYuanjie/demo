@@ -12,4 +12,5 @@ define('MYSQL_USER', 'root');
 define('MYSQL_PSW', 'root');
 define('DBNAME', 'demo');
 
+define('ROOT', getcwd());
 

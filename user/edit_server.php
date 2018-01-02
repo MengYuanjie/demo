@@ -6,7 +6,7 @@
  * Time: 00:13
  */
 session_start();
-include 'func.php';
+include '../func.php';
 
 if(empty($_POST['user'])){
   die('username is empty');
@@ -31,7 +31,7 @@ $sql = "UPDATE userinfo SET user='{$user}',psw='{$psw}' WHERE sid='{$sid}'";
 
 $result=$con->query($sql);
 if($result){
-  header("Location:index.php");
+  header("Location:../index.php");
 }else{
   echo "update failed";
 }

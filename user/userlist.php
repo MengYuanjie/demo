@@ -6,9 +6,9 @@
  * Time: 22:56
  */
 
-include 'func.php';
+include '../func.php';
 
-echo "<h4><a href='index.php'>back to main page</a></h4><br>";
+echo "<h4><a href='../index.php'>back to main page</a></h4><br>";
 $sql = "SELECT * FROM userinfo ";
 $con = connect();
 $result = $con->query($sql);
@@ -25,3 +25,4 @@ if($result->num_rows>0){
 }
 
 $con->close();
+

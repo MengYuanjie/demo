@@ -7,7 +7,7 @@
  */
 
 session_start();
-include "../func.php";
+include_once '../func.php';
 
 if(!empty($_GET['postid'])) {
   //连接mysql数据库
@@ -30,6 +30,7 @@ if(!empty($_GET['postid'])) {
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="format.css">
   <meta charset="UTF-8">
   <title>修改用户数据</title>
 </head>
@@ -39,7 +40,7 @@ if(!empty($_GET['postid'])) {
   Title: <br>
   <input type="text" name="fname" placeholder="Subject" class="subject" value="<?php echo $result_arr['title']?>"><br>
   Message: <br>
-  <input type="text" name="fcontent" placeholder="say sth about your day" class="content-detail" value="<?php echo $result_arr['content']?>"><br>
+  <textarea type="text" name="fcontent" placeholder="say sth about your day" class="content-detail" ><?php echo $result_arr['content']?></textarea><br>
   <input type="submit" value="change the content">
 </form>
 </body>
