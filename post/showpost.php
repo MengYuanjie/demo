@@ -63,3 +63,5 @@ on <?php echo $result_arr['date']?></span>
     </article>
 
     <hr>
+
+<?php require '../footer.php'?>

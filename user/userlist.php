@@ -37,8 +37,8 @@ if($result->num_rows>0){
     echo "<div class='col-lg-8 col-md-10 mx-auto' style='margin:0 auto'>";
     echo "user : " . $row["user"]."<br>";
     echo "psw : " . $row["psw"]. "<br>";
-    echo "<a href='edit.php?sid=".$row["sid"]."'>修改</a> ";
-    echo "<a href='delete.php?sid=".$row["sid"]."'>删除</a></td></tr><br>";
+    echo "<a class='caption text-muted' href='edit.php?sid=".$row["sid"]."'>修改</a> ";
+    echo "<a class='caption text-muted' href='delete.php?sid=".$row["sid"]."'>删除</a></td></tr><br>";
     echo "</div>";
     echo "<hr>";
   }
@@ -48,4 +48,6 @@ if($result->num_rows>0){
 
 $con->close();
 ?>
+
+<?php require '../footer.php'?>
 

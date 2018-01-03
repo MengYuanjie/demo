@@ -27,6 +27,8 @@ include "nav.php";
 <!--      <div class="clearfix">-->
 <!--        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>-->
 <!--      </div>-->
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
+<?php require './footer.php'?>

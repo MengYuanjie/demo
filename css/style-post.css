@@ -27,7 +27,7 @@ body{
   font-family: 'Lora', serif;
 
 }
-body a,form li,.submit input[type="submit"]{
+body a,form li,.button input[type="button"]{
 	transition: 0.1s all;
 	-webkit-transition: 0.1s all;
 	-moz-transition: 0.1s all;
@@ -118,7 +118,7 @@ form textarea {
   resize: none;
   height: 140px;
 }
-.login-01 input[type="submit"]{
+.login-01 input[type="button"]{
   font-size: 17px;
   font-weight: 300;
   color: #fff;
@@ -135,7 +135,7 @@ form textarea {
   -moz-border-radius: 0.3em;
   margin-right:2.85em;
 }
-input[type="submit"]:hover{
+input[type="button"]:hover{
 -webkit-transform: rotate(4deg);
   transform: rotate(4deg);
   -o-transform: rotate(4deg);
@@ -162,13 +162,13 @@ li.lost {
 }
 /*-----start-responsive-design------*/
 @media (max-width:1440px){
-  .login-01 input[type="submit"]{
+  .login-01 input[type="button"]{
   margin-right:1.85em;
   }
 	
 }
 @media (max-width:1366px){
-  .login-01 input[type="submit"]{
+  .login-01 input[type="button"]{
   margin-right: 1.6em;
   }
   	
@@ -313,7 +313,7 @@ li.second:hover .msg {
 .copy-right p {
   line-height: 1.6em;
 }
-.login-01 input[type="submit"] {
+.login-01 input[type="button"] {
   font-size: 17px;
   padding: 8px 8px;
   width: 36%;
