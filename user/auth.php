@@ -42,8 +42,7 @@ if($result->num_rows > 0){
   $arr['user']=$user;
   $arr['sid']=$result_arr['sid'];
   $_SESSION['info']=$arr;
-
-  header("Location:../index.php");
+  echo "success";
 }else{
   echo "Log in failed";
 }

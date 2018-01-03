@@ -1,6 +1,7 @@
 <?php
+require_once '/Users/Daisy/www/demo2/config.php';
 
-require ROOT . '/func.php';
+require '/Users/Daisy/www/demo2/func.php';
 
 //function to split
 function pagetosplit($pageNum, $pageSize,$sid){
@@ -9,7 +10,7 @@ function pagetosplit($pageNum, $pageSize,$sid){
   $sql = "SELECT * FROM postset  WHERE sid='{$sid}' limit " . (($pageNum - 1) * $pageSize) . ", " . $pageSize;
   $con = connect();
   $result = $con->query($sql);
-  //print $sql;
+//  print $sql;
   while ($obj = mysqli_fetch_object($result)) {
     $array[] = $obj;
   }

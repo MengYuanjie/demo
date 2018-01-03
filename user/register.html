@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
+    <script type="text/javascript">
+        function add() {
+            var user=$(".user").val();
+            var psw=$(".psw").val();
+
+            $.ajax({
+                type: "POST",
+                url: "add.php",
+                data:{
+                    "user" : user,
+                    "psw" : psw
+                },
+                success: function(result){
+                    console.log("success");
+                    console.log(result);
+                    alert("yes");
+                    //window.location.replace('../home.php');
+
+                },
+                error: function(){
+                    console.log("error");
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <h3>注册</h3>
 <form action="add.php" method="post">
     <label>用户名：</label><input type="text" name="user">
     <label>密码：</label><input type="password" name="psw">
-    <input type="submit" value="提交">
+    <input type="submit" onclick="add()" value="提交">
 </form>
+
 
 </body>
 </html>

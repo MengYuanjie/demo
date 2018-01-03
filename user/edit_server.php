@@ -31,7 +31,7 @@ $sql = "UPDATE userinfo SET user='{$user}',psw='{$psw}' WHERE sid='{$sid}'";
 
 $result=$con->query($sql);
 if($result){
-  header("Location:../index.php");
+  header("Location: userlist.php");
 }else{
   echo "update failed";
 }

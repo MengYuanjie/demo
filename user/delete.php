@@ -5,6 +5,8 @@
  * Date: 02/01/2018
  * Time: 00:58
  */
+session_start();
+
 include '../func.php';
 
 if(empty($_GET['sid'])){
@@ -22,7 +24,14 @@ $sql="DELETE FROM userinfo WHERE sid='{$sid}'";
 //return to home page
 $result=$con->query($sql);
 if($result){
-  header("Location:../index.php");
-}else{
+  if(isset($_SESSION['info'])) {
+    $arr=$_SESSION['info'];
+
+    if (!empty($arr['sid'])&&$arr['sid']==$sid) {
+      session_destroy();
+    }
+    }
+   header("Location:../home.php");
+  }else{
   echo "Delete failed";
 }
