@@ -15,8 +15,9 @@ if(empty($_POST['psw'])){
   die('password is empty');
 }
 
-
-$sid=$_SESSION['sid'];
+$arr=array();
+$arr=$_SESSION['info'];
+$sid=$arr['sid'];
 $user=$_POST['user'];
 $psw=$_POST['psw'];
 
