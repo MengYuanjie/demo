@@ -18,7 +18,10 @@ if(!empty($_GET['sid'])) {
 
   if ($result->num_rows > 0) {
     $result_arr = $result->fetch_assoc();
-    $_SESSION['sid']=$sid;
+    //$_SESSION['sid']=$sid;
+    $arr = array();
+    $arr= $_SESSION['info'];
+    $arr['sid']=$sid;
   }
   else {
     echo " there is no message";
@@ -89,8 +92,8 @@ if(!empty($_GET['sid'])) {
 <!--<body>-->
 <!---->
 <!--<form action="edit_server.php" method="post">-->
-<label>用户名：</label><input type="text" name="user" value="<?php echo $result_arr['user']?>">
-<label>密码：</label><input type="text" name="psw" value="<?php echo $result_arr['psw']?>">
+<!--<label>用户名：</label><input type="text" name="user" value="--><?php //echo $result_arr['user']?><!--">-->
+<!--<label>密码：</label><input type="text" name="psw" value="--><?php //echo $result_arr['psw']?><!--">-->
 <!--<input type="submit" value="提交修改">-->
 <!--</form>-->
 <!--</body>-->

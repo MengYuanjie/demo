@@ -22,11 +22,10 @@ foreach($array as $key=>$values){
 //  echo "<a href='/demo2/post/action.php?action=delete&postid={$values->postid}'>删除</a></td></tr><br>";
 
   echo "<div class='post-preview'>";
-  echo "<a href='post.html'>";
+  echo "<a href='post/showpost.php?postid=".$values->postid."'>";
   echo "<h2 class='post-title'> {$values->title}</h2>>";
   echo "<h3 class='post-subtitle'>{$values->content}</h3></a>";
   echo "<p class='post-meta'>Posted by <a href='#'>{$values->user}</a> on {$values->date}</p></div><hr>";
-
 }
 
 
