@@ -8,7 +8,7 @@ include 'navuser.php';
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
           <h3>User Admin</h3>
-          <h4><a href='../home.php'>back to main page</a></h4>
+          <h4><a href='../index.php'>back to main page</a></h4>
         </div>
       </div>
     </div>

@@ -65,7 +65,7 @@ VALUES('{$user}','{$date}','{$title}','{$content}', '{$postid}' ,'{$sid}')";
     }else{
       $message="Update Failed";
     }
-    header("Location:../home.php");
+    header("Location:../index.php");
 
     break;
   case "delete":
@@ -78,7 +78,7 @@ VALUES('{$user}','{$date}','{$title}','{$content}', '{$postid}' ,'{$sid}')";
     }else{
       $message="Delete Success";
     }
-    header("Location:../home.php");
+    header("Location:../index.php");
     break;
 }
 

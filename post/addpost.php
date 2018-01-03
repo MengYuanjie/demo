@@ -45,7 +45,7 @@
 
     function jump(){
 
-      window.location.replace('../home.php');
+      window.location.replace('../index.php');
 
     }
 

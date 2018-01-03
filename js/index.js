@@ -45,7 +45,7 @@ function signin(){
             if(result!="success") alert(result+", please try again.")
             else {
                 alert("Success!")
-                window.location.replace('../home.php');
+                window.location.replace('../index.php');
             }
 
         },

@@ -31,7 +31,7 @@ if($result){
       session_destroy();
     }
     }
-   header("Location:../home.php");
+   header("Location:../user/userlist.php");
   }else{
   echo "Delete failed";
 }

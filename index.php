@@ -1,40 +1,34 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Daisy
- * Date: 01/01/2018
- * Time: 22:05
- */
 
-include_once 'config.php';
-
-$message="this is home page";
-session_start();
+include "nav.php";
 ?>
-<html>
-<body>
-<h1><?php print $message?></h1>
-<h4><a href='./user/userlist.php'>user admin list</a></h4><br>
 
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('img/about-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Using Blog</h1>
+          <span class="subheading">To keep a daily log of your life</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<h4>
-  <?php
-  if(isset($_SESSION['info'])) {
-    $arr=$_SESSION['info'];
-    if (!empty($arr['user'])) {
-      print "hello " . $arr['user'];
-      echo "<h4><a href='post/addpost.php'>add new post</a></h4><br>";
-      echo "<h4><a href='user/logout.php'>Log out</a></h4><br>";
-    }
-  }else{
-    echo "<h4><a href='./user/register.html'>register</a></h4><br>";
-    echo "<h4><a href='./user/login.html'>log in</a></h4><br>";
-  }
-  ?>
-</h4>
-<div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <?php require './post/postlist.php'?>
 
-<?php include './post/postlist.php'?>
+<!-- Pager -->
+<!--      <div class="clearfix">-->
+<!--        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>-->
+<!--      </div>-->
+    </div>
+  </div>
 </div>
-</body>
-</html>
+
+<?php require './footer.php'?>
