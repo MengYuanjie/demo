@@ -23,10 +23,10 @@ $psw=$_POST['psw'];
 
 
 ////connect to db
-$con=connect();
+$con = connect();
 
 //
-$timesmpt=time();
+$timesmpt = time();
 ////insert data
 $sql = "UPDATE userinfo SET user='{$user}',psw='{$psw}' WHERE sid='{$sid}'";
 
