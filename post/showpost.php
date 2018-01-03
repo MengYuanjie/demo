@@ -53,7 +53,11 @@ on <?php echo $result_arr['date']?></span>
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <p><?php echo $result_arr['content']?></p>
+
           </div>
+          <span ><a class="caption text-muted" href='/demo2/post/editphp.php?postid=<?php echo $result_arr['postid']?>'>修改</a></span>
+          <span ><a class="caption text-muted" href='/demo2/post/action.php?action=delete&postid=<?php echo $result_arr['postid']?>'>删除</a></span>
+
         </div>
       </div>
     </article>

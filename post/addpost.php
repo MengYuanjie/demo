@@ -38,7 +38,7 @@
 //          str+= "---------------<br>";
 
 //          $("#show").prepend(str);
-          window.location.replace('../index.php');
+          window.location.replace('../home.php');
 
 
         },
@@ -49,20 +49,58 @@
       });
     }
   </script>
-</head>
+  <html>
+  <head>
+    <title>Post</title>
+    <link href="../css/style-post.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+  </head>
 <body>
-<h3>Add a post</h3>
-<form action="" method="post">
-  Title: <br>
-  <input type="text" name="fname" placeholder="Subject" class="subject"><br>
-  Message: <br>
-  <textarea type="text" name="fcontent" placeholder="say sth about your day" class="content-detail"></textarea><br>
-  <input type="button" onclick="addpost()" value="leave your message">
-</form>
-<!--<div id="show">-->
-<?php //include 'postlist.php'?>
-<!--</div>-->
+<h1>Post Form</h1>
+<div class="login-01">
+  <form action="" method="post">
+    <ul>
+      <li class="first">
+        <a href="#" class=" icon msg"></a><input type="text" name="fname" placeholder="Subject" class="subject" ><br>
+
+        <div class="clear"></div>
+      </li>
+
+      <li class="second">
+        <a href="#" class=" icon msg"></a><textarea type="text" name="fcontent" placeholder="say sth about your day" class="content-detail"></textarea>
+        <div class="clear"></div>
+      </li>
+    </ul>
+    <input type="submit" onclick="addpost()" value="Post">
+
+    <div class="clear"></div>
+  </>
+</div>
+
+</div>
 </body>
-
-
 </html>
+
+
+
+<!--</head>-->
+<!--<body>-->
+<!--<h3>Add a post</h3>-->
+<!--<form action="" method="post">-->
+<!--  Title: <br>-->
+<!--  <input type="text" name="fname" placeholder="Subject" class="subject"><br>-->
+<!--  Message: <br>-->
+<!--  <textarea type="text" name="fcontent" placeholder="say sth about your day" class="content-detail"></textarea><br>-->
+<!--  <input type="button" onclick="addpost()" value="leave your message">-->
+<!--</form>-->
+<!--<!--<div id="show">-->
+<?php ////include 'postlist.php'?>
+<!--<!--</div>-->
+<!--</body>-->
+<!---->
+<!---->
+<!--</html>-->
