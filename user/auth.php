@@ -5,44 +5,41 @@
  * Date: 02/01/2018
  * Time: 01:09
  */
-session_start();
-include '../func.php';
+  session_start();
+  require_once '../func.php';
 
-if(!isset($_POST['user'])){
-  die('user is not defined');
-}
-if(!isset($_POST['psw'])){
-  die('password is not defined');
-}
+  if(!isset($_POST['user'])){
+    die('user is not defined');
+  }
 
-$user=$_POST['user'];
-$psw=$_POST['psw'];
+  if(!isset($_POST['psw'])){
+    die('password is not defined');
+  }
 
-if(empty($user)){
-  die('username is empty');
-}
-if(empty($psw)){
-  die('password is empty');
-}
+  $user=$_POST['user'];
+  $psw=$_POST['psw'];
+
+  if(empty($user)){
+    die('username is empty');
+  }
+  if(empty($psw)){
+    die('password is empty');
+  }
+
+ $con = connectDB();
+
+  $sql = "SELECT * FROM userinfo WHERE user='{$user}' AND psw='{$psw}'";
+
+  $result_arr = fetchOne($con, $sql);
 
 
-////connect to db
-$con=connect();
-
-//
-$timesmpt=time();
-////insert data
-$sql = "SELECT * FROM userinfo WHERE user='{$user}' AND psw='{$psw}'";
-
-$result=$con->query($sql);
-if($result->num_rows > 0){
-  $result_arr = $result->fetch_assoc();
-
-  $arr = array();
-  $arr['user']=$user;
-  $arr['sid']=$result_arr['sid'];
-  $_SESSION['info']=$arr;
-  echo "success";
-}else{
-  echo "Log in failed";
-}
+  if(count($result_arr))
+  {
+    storeSession('info', 'user', $user);
+    storeSession('info', 'sid', $result_arr['sid']);
+    echo "success";
+  }
+  else
+  {
+    echo "Log in failed";
+  }

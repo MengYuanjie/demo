@@ -1,41 +1,21 @@
 <?php
-require_once '/Users/Daisy/www/demo2/config.php';
+  require_once '/Users/Daisy/www/demo2/config.php';
 
-require '/Users/Daisy/www/demo2/func.php';
+  require_once '/Users/Daisy/www/demo2/func.php';
 
-//function to split
-function pagetosplit($pageNum, $pageSize,$sid){
-  $array = array();
+  $pageSize = 3;
 
-  $sql = "SELECT * FROM postset  WHERE sid='{$sid}' limit " . (($pageNum - 1) * $pageSize) . ", " . $pageSize;
-  $con = connect();
-  $result = $con->query($sql);
-//  print $sql;
-  while ($obj = mysqli_fetch_object($result)) {
-    $array[] = $obj;
-  }
-  $con->close();
-  return $array;
-}
 
-//function to show total pages
-function totalpage($sid){
-  $con = connect();
+
+
+
+  $sid = getSessionData('info', 'sid');
+  $con = connectDB();
   $sql = "select count(*) num from postset WHERE sid='{$sid}'";
-  $result = $con->query($sql);
-  $obj = mysqli_fetch_object($result);
-  $con->close();
-  return $obj->num;
-}
+  $arr = fetchOne($con, $sql);
+  $allNum = $arr['num'];
+  $pageNum = empty($_GET["pageNum"])? 1 : $_GET["pageNum"];
+  $endPage = ceil($allNum / $pageSize);
+  $array = pageToSplit($pageNum, $pageSize, $sid);
 
-$pageSize = 3;
-
-$sid="";
-if(isset($_SESSION['info'])){
-  $sid=$arr['sid'];
-}
-$allNum = totalpage($sid);
-$pageNum = empty($_GET["pageNum"])?1:$_GET["pageNum"];
-$endPage = ceil($allNum/$pageSize);
-$array = pagetosplit($pageNum,$pageSize,$sid);
 

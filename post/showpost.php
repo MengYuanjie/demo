@@ -5,28 +5,27 @@
  * Date: 03/01/2018
  * Time: 09:24
  */
-include 'navpost.php';
-require_once '/Users/Daisy/www/demo2/config.php';
-require '/Users/Daisy/www/demo2/func.php';
+  require_once 'navpost.php';
+  require_once '/Users/Daisy/www/demo2/config.php';
+  require_once '../func.php';
 
-if(!empty($_GET['postid'])) {
-  $con = connect();
-  $postid=$_GET['postid'];
-  $sql = "SELECT * FROM postset WHERE postid='{$postid}'";
-  $result = $con->query($sql);
+  if(!empty($_GET['postid']))
+  {
+    $con = connectDB();
+    $postid = $_GET['postid'];
+    $sql = "SELECT * FROM postset WHERE postid='{$postid}'";
 
-  if ($result->num_rows > 0) {
-    $result_arr = $result->fetch_assoc();
-    $arr = array();
-    $arr= $_SESSION['info'];
-    $arr['postid']=$postid;
+    $result_arr = fetchOne($con, $sql);
+
+    if(count($result_arr))
+    {
+      storeSession('info', 'postid', $postid);
+    }
+    else
+    {
+      echo " there is no message";
+    }
   }
-  else {
-    echo " there is no message";
-  }
-}
-
-
 ?>
 
 
@@ -36,7 +35,9 @@ if(!empty($_GET['postid'])) {
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-              <h1><?php echo $result_arr['title']?></h1>
+              <h1>
+                <?php echo $result_arr['title']?>
+              </h1>
               <h2 class="subheading"></h2>
               <span class="meta">Posted by
 <a href="#"><?php echo $result_arr['user']?></a>

@@ -1,29 +1,26 @@
 document.write("<script src='../js/jquery.min.js'></script>");
 
 function signup(){
-    var user=document.getElementById("name").value;
-    var psw=document.getElementById("psw").value;
-    console.log("user is"+user);
-    console.log("psw is"+psw);
+    var user = document.getElementById("name").value;
+    var psw = document.getElementById("psw").value;
 
     $.ajax({
-        type: "POST",
-        url: "add.php",
-        data:{
+        type : "POST",
+        url : "add.php",
+        data :
+        {
             "user" : user,
             "psw" : psw
         },
-        success: function(result){
+        success: function()
+        {
 
-            console.log("success");
-            console.log(result);
             alert("Sign up sccess, Please sign in");
             window.location.replace('../user/testre.php#');
 
         },
-        error: function(){
-            alert(3);
-
+        error: function()
+        {
             console.log("error");
         }
     });
@@ -36,20 +33,28 @@ function signin(){
     $.ajax({
         type: "POST",
         url: "auth.php",
-        data:{
+        data:
+        {
             "user" : user,
             "psw" : psw
         },
-        success: function(result){
+        success: function(result)
+        {
             console.log(result);
-            if(result!="success") alert(result+", please try again.")
-            else {
-                alert("Success!")
+
+            if(result != "success")
+            {
+                alert(result + ", please try again.")
+            }
+            else
+            {
+                alert("Success!");
                 window.location.replace('../index.php');
             }
 
         },
-        error: function(){
+        error: function()
+        {
             console.log("error");
         }
     });

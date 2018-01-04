@@ -1,5 +1,5 @@
 <?php
-include 'navuser.php';
+  require_once 'navuser.php';
 ?>
 <header class="masthead" style="background-image: url('../img/about-bg.jpg')">
   <div class="overlay"></div>
@@ -18,36 +18,42 @@ include 'navuser.php';
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
+
+      <?php
+      /**
+       * Created by PhpStorm.
+       * User: Daisy
+       * Date: 01/01/2018
+       * Time: 22:56
+       */
+
+        require_once '../func.php';
+
+        $con = connectDB();
+        $sql = "SELECT * FROM userinfo";
+        $arr = implementSQL($con, $sql);
+        //print_r($arr);
+
+        /*
+         * print out user list
+         */
+        foreach($arr as $key => $value)
+        {
+          echo "<div class='col-lg-8 col-md-10 mx-auto' style='margin:0 auto'>";
+          echo "user : " . $value["user"]."<br>";
+          echo "psw : " . $value["psw"]. "<br>";
+          echo "<a class='caption text-muted' href='edit.php?sid=".$value["sid"]."'>修改</a> ";
+          echo "<a class='caption text-muted' href='delete.php?sid=".$value["sid"]."'>删除</a></td></tr><br>";
+          echo "</div>";
+          echo "<hr>";
+        }
+      ?>
+
+    </div>
+  </div>
+</div>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: Daisy
- * Date: 01/01/2018
- * Time: 22:56
- */
-
-include '../func.php';
-
-echo "";
-$sql = "SELECT * FROM userinfo ";
-$con = connect();
-$result = $con->query($sql);
-if($result->num_rows>0){
-  while($row = $result->fetch_assoc()){
-    echo "<div class='col-lg-8 col-md-10 mx-auto' style='margin:0 auto'>";
-    echo "user : " . $row["user"]."<br>";
-    echo "psw : " . $row["psw"]. "<br>";
-    echo "<a class='caption text-muted' href='edit.php?sid=".$row["sid"]."'>修改</a> ";
-    echo "<a class='caption text-muted' href='delete.php?sid=".$row["sid"]."'>删除</a></td></tr><br>";
-    echo "</div>";
-    echo "<hr>";
-  }
-}else{
-  echo " there is no message";
-}
-
-$con->close();
+  require_once '../footer.php'
 ?>
-
-<?php require '../footer.php'?>
 

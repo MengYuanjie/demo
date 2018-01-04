@@ -1,6 +1,7 @@
 <?php
-
-include "nav.php";
+  require_once "nav.php";
+//var_dump($_SESSION);exit;
+//session_destroy();
 ?>
 
 <!-- Page Header -->
@@ -21,14 +22,13 @@ include "nav.php";
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <?php require './post/postlist.php'?>
-
-<!-- Pager -->
-<!--      <div class="clearfix">-->
-<!--        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>-->
-<!--      </div>-->
+      <?php
+        require_once './post/postlist.php'
+      ?>
     </div>
   </div>
 </div>
 
-<?php require './footer.php'?>
+<?php
+  require_once './footer.php'
+?>

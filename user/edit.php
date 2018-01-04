@@ -5,28 +5,18 @@
  * Date: 02/01/2018
  * Time: 00:13
  */
-session_start();
-include "../func.php";
+  session_start();
+  require_once "../func.php";
 
-if(!empty($_GET['sid'])) {
-  //连接mysql数据库
-  $con = connect();
-
-  $sid = $_GET['sid'];
-  $sql = "SELECT * FROM userinfo WHERE sid='{$sid}'";
-  $result = $con->query($sql);
-
-  if ($result->num_rows > 0) {
-    $result_arr = $result->fetch_assoc();
-    //$_SESSION['sid']=$sid;
-    $arr = array();
-    $arr= $_SESSION['info'];
-    $arr['sid']=$sid;
+  if(!empty($_GET['sid']))
+  {
+    $con = connectDB();
+    $sid = $_GET['sid'];
+    $sql = "SELECT * FROM userinfo WHERE sid = '{$sid}'";
+    storeSession('info', 'sid', $sid);
+    $result_arr = fetchOne($con, $sql);
   }
-  else {
-    echo " there is no message";
-  }
-}
+
 ?>
 
 <!DOCTYPE html>

@@ -19,24 +19,22 @@
   <script type="text/javascript">
 
     function addpost() {
-      var fname=$(".subject").val();
-      var fcontent=$(".content-detail").val();
+      var fname = $(".subject").val();
+      var fcontent = $(".content-detail").val();
       $.ajax({
-        type:"POST",
-        url:"action.php?action=add",
-        data: {
-          "fname":fname,
-          "fcontent":fcontent
+        type : "POST",
+        url : "action.php?action=add",
+        data : {
+          "fname" : fname,
+          "fcontent" : fcontent
         },
-        success: function(result){
-//          result = JSON.parse(result);
+        success : function(){
           console.log("success");
 
-//          $("#show").prepend(str);
-          window.location.replace('../home.php');
+          window.location.replace('../index.php');
 
         },
-        error: function(){
+        error : function(){
           console.log("error");
         }
 
